@@ -7,7 +7,7 @@ const config: Phaser.Types.Core.GameConfig = {
     width: 512,
     height: 384,
     parent: 'game-container',
-    backgroundColor: '#028af8',
+    backgroundColor: '#a0233b',
     scene: [
         Preloader,
         MainGame,
@@ -16,9 +16,10 @@ const config: Phaser.Types.Core.GameConfig = {
         zoom: 2
     },
     physics: {
+        default: 'arcade',
         arcade: {
             gravity: { y: 0 },
-            debug: true
+            debug: false
         }
     }
 };
