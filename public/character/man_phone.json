@@ -1,0 +1,208 @@
+{
+    "textures": [
+        {
+            "image": "man_phone",
+            "format": "RGBA8888",
+            "size": {
+                "w": 16,
+                "h": 186
+            },
+            "scale": 1,
+            "frames": [
+                {
+                    "filename": "man-phone-5.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 16,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 0,
+                        "y": 8,
+                        "w": 16,
+                        "h": 24
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 0,
+                        "w": 16,
+                        "h": 24
+                    }
+                },
+                {
+                    "filename": "man-phone-6.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 16,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 0,
+                        "y": 8,
+                        "w": 16,
+                        "h": 24
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 24,
+                        "w": 16,
+                        "h": 24
+                    }
+                },
+                {
+                    "filename": "man-phone-0.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 16,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 0,
+                        "y": 9,
+                        "w": 16,
+                        "h": 23
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 48,
+                        "w": 16,
+                        "h": 23
+                    }
+                },
+                {
+                    "filename": "man-phone-1.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 16,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 0,
+                        "y": 9,
+                        "w": 16,
+                        "h": 23
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 71,
+                        "w": 16,
+                        "h": 23
+                    }
+                },
+                {
+                    "filename": "man-phone-2.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 16,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 0,
+                        "y": 9,
+                        "w": 16,
+                        "h": 23
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 94,
+                        "w": 16,
+                        "h": 23
+                    }
+                },
+                {
+                    "filename": "man-phone-3.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 16,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 0,
+                        "y": 9,
+                        "w": 16,
+                        "h": 23
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 117,
+                        "w": 16,
+                        "h": 23
+                    }
+                },
+                {
+                    "filename": "man-phone-7.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 16,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 0,
+                        "y": 9,
+                        "w": 16,
+                        "h": 23
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 140,
+                        "w": 16,
+                        "h": 23
+                    }
+                },
+                {
+                    "filename": "man-phone-8.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 16,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 0,
+                        "y": 9,
+                        "w": 16,
+                        "h": 23
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 163,
+                        "w": 16,
+                        "h": 23
+                    }
+                },
+                {
+                    "filename": "man-phone-4.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 16,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 0,
+                        "y": 9,
+                        "w": 16,
+                        "h": 23
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 117,
+                        "w": 16,
+                        "h": 23
+                    }
+                }
+            ]
+        }
+    ],
+    "meta": {
+        "app": "http://free-tex-packer.com",
+        "version": "0.6.7"
+    }
+}

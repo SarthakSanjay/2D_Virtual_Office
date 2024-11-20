@@ -1,0 +1,271 @@
+{
+    "textures": [
+        {
+            "image": "sit1",
+            "format": "RGBA8888",
+            "size": {
+                "w": 16,
+                "h": 224
+            },
+            "scale": 1,
+            "frames": [
+                {
+                    "filename": "sit-left-2.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 32,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 6,
+                        "y": 8,
+                        "w": 16,
+                        "h": 23
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 0,
+                        "w": 16,
+                        "h": 23
+                    }
+                },
+                {
+                    "filename": "sit-left-3.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 32,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 6,
+                        "y": 8,
+                        "w": 16,
+                        "h": 23
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 23,
+                        "w": 16,
+                        "h": 23
+                    }
+                },
+                {
+                    "filename": "sit-right-8.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 32,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 10,
+                        "y": 8,
+                        "w": 16,
+                        "h": 23
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 46,
+                        "w": 16,
+                        "h": 23
+                    }
+                },
+                {
+                    "filename": "sit-right-9.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 32,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 10,
+                        "y": 8,
+                        "w": 16,
+                        "h": 23
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 69,
+                        "w": 16,
+                        "h": 23
+                    }
+                },
+                {
+                    "filename": "sit-left-0.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 32,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 6,
+                        "y": 9,
+                        "w": 16,
+                        "h": 22
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 92,
+                        "w": 16,
+                        "h": 22
+                    }
+                },
+                {
+                    "filename": "sit-left-4.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 32,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 6,
+                        "y": 9,
+                        "w": 16,
+                        "h": 22
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 114,
+                        "w": 16,
+                        "h": 22
+                    }
+                },
+                {
+                    "filename": "sit-left-5.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 32,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 6,
+                        "y": 9,
+                        "w": 16,
+                        "h": 22
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 136,
+                        "w": 16,
+                        "h": 22
+                    }
+                },
+                {
+                    "filename": "sit-right-6.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 32,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 10,
+                        "y": 9,
+                        "w": 16,
+                        "h": 22
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 158,
+                        "w": 16,
+                        "h": 22
+                    }
+                },
+                {
+                    "filename": "sit-right-10.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 32,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 10,
+                        "y": 9,
+                        "w": 16,
+                        "h": 22
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 180,
+                        "w": 16,
+                        "h": 22
+                    }
+                },
+                {
+                    "filename": "sit-right-11.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 32,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 10,
+                        "y": 9,
+                        "w": 16,
+                        "h": 22
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 202,
+                        "w": 16,
+                        "h": 22
+                    }
+                },
+                {
+                    "filename": "sit-left-1.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 32,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 6,
+                        "y": 9,
+                        "w": 16,
+                        "h": 22
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 92,
+                        "w": 16,
+                        "h": 22
+                    }
+                },
+                {
+                    "filename": "sit-right-7.png",
+                    "rotated": false,
+                    "trimmed": true,
+                    "sourceSize": {
+                        "w": 32,
+                        "h": 32
+                    },
+                    "spriteSourceSize": {
+                        "x": 10,
+                        "y": 9,
+                        "w": 16,
+                        "h": 22
+                    },
+                    "frame": {
+                        "x": 0,
+                        "y": 158,
+                        "w": 16,
+                        "h": 22
+                    }
+                }
+            ]
+        }
+    ],
+    "meta": {
+        "app": "http://free-tex-packer.com",
+        "version": "0.6.7"
+    }
+}

@@ -1,0 +1,271 @@
+{
+	"textures": [
+		{
+			"image": "sit3",
+			"format": "RGBA8888",
+			"size": {
+				"w": 16,
+				"h": 224
+			},
+			"scale": 1,
+			"frames": [
+				{
+					"filename": "temp/02.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 8,
+						"w": 16,
+						"h": 23
+					},
+					"frame": {
+						"x": 0,
+						"y": 0,
+						"w": 16,
+						"h": 23
+					}
+				},
+				{
+					"filename": "temp/03.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 8,
+						"w": 16,
+						"h": 23
+					},
+					"frame": {
+						"x": 0,
+						"y": 23,
+						"w": 16,
+						"h": 23
+					}
+				},
+				{
+					"filename": "temp/08.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 8,
+						"w": 16,
+						"h": 23
+					},
+					"frame": {
+						"x": 0,
+						"y": 46,
+						"w": 16,
+						"h": 23
+					}
+				},
+				{
+					"filename": "temp/09.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 8,
+						"w": 16,
+						"h": 23
+					},
+					"frame": {
+						"x": 0,
+						"y": 69,
+						"w": 16,
+						"h": 23
+					}
+				},
+				{
+					"filename": "temp/00.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 9,
+						"w": 16,
+						"h": 22
+					},
+					"frame": {
+						"x": 0,
+						"y": 92,
+						"w": 16,
+						"h": 22
+					}
+				},
+				{
+					"filename": "temp/04.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 9,
+						"w": 16,
+						"h": 22
+					},
+					"frame": {
+						"x": 0,
+						"y": 114,
+						"w": 16,
+						"h": 22
+					}
+				},
+				{
+					"filename": "temp/05.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 9,
+						"w": 16,
+						"h": 22
+					},
+					"frame": {
+						"x": 0,
+						"y": 136,
+						"w": 16,
+						"h": 22
+					}
+				},
+				{
+					"filename": "temp/06.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 9,
+						"w": 16,
+						"h": 22
+					},
+					"frame": {
+						"x": 0,
+						"y": 158,
+						"w": 16,
+						"h": 22
+					}
+				},
+				{
+					"filename": "temp/10.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 9,
+						"w": 16,
+						"h": 22
+					},
+					"frame": {
+						"x": 0,
+						"y": 180,
+						"w": 16,
+						"h": 22
+					}
+				},
+				{
+					"filename": "temp/11.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 9,
+						"w": 16,
+						"h": 22
+					},
+					"frame": {
+						"x": 0,
+						"y": 202,
+						"w": 16,
+						"h": 22
+					}
+				},
+				{
+					"filename": "temp/01.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 9,
+						"w": 16,
+						"h": 22
+					},
+					"frame": {
+						"x": 0,
+						"y": 92,
+						"w": 16,
+						"h": 22
+					}
+				},
+				{
+					"filename": "temp/07.png",
+					"rotated": false,
+					"trimmed": true,
+					"sourceSize": {
+						"w": 16,
+						"h": 32
+					},
+					"spriteSourceSize": {
+						"x": 0,
+						"y": 9,
+						"w": 16,
+						"h": 22
+					},
+					"frame": {
+						"x": 0,
+						"y": 158,
+						"w": 16,
+						"h": 22
+					}
+				}
+			]
+		}
+	],
+	"meta": {
+		"app": "http://free-tex-packer.com",
+		"version": "0.6.7"
+	}
+}
