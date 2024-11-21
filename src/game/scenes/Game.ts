@@ -1,4 +1,5 @@
 import Phaser from "phaser";
+import { createCharacterAnims } from "../anims/CharacterAnims";
 
 
 export class Game extends Phaser.Scene {
@@ -20,6 +21,7 @@ export class Game extends Phaser.Scene {
 
     create() {
         this.camera = this.cameras.main
+        createCharacterAnims(this.anims)
 
         this.phoneKey = this.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.A)
 
@@ -28,101 +30,20 @@ export class Game extends Phaser.Scene {
         })
 
         const tileset = map.addTilesetImage('virtualOffice', 'tiles', 16, 16, 1, 2)
+        const tileset2 = map.addTilesetImage('outside', 'outside', 16, 16, 1, 2)
         //@ts-ignore
-        map.createLayer('ground', tileset)
+        map.createLayer('ground', [tileset, tileset2])
         // map.createLayer('walls2', tileset)
 
 
-        this.man = this.physics.add.sprite(120, 120, 'run', 'run-right-2.png')
-
-        this.anims.create({
-            key: 'run-right',
-            frames: this.anims.generateFrameNames('run', {
-                start: 0,
-                end: 5,
-                prefix: 'run-right-',
-                suffix: '.png'
-            }),
-            frameRate: 10,
-            repeat: -1
-        })
-
-        this.anims.create({
-            key: 'run-up',
-            frames: this.anims.generateFrameNames('run', {
-                start: 6,
-                end: 11,
-                prefix: 'run-up-',
-                suffix: '.png'
-            }),
-            frameRate: 10,
-            repeat: -1
-
-        })
-        this.anims.create({
-            key: 'run-left',
-            frames: this.anims.generateFrameNames('run', {
-                start: 12,
-                end: 17,
-                prefix: 'run-left-',
-                suffix: '.png'
-            }),
-            frameRate: 10,
-            repeat: -1
-
-        })
-        this.anims.create({
-            key: 'run-down',
-            frames: this.anims.generateFrameNames('run', {
-                start: 18,
-                end: 23,
-                prefix: 'run-down-',
-                suffix: '.png'
-            }),
-            frameRate: 10,
-            repeat: -1
-
-        })
-
-        this.anims.create({
-            key: 'man-phone',
-            frames: this.anims.generateFrameNames('man-phone', {
-                start: 0,
-                end: 8,
-                prefix: 'man-phone-',
-                suffix: '.png'
-            }),
-            frameRate: 10,
-            repeat: -1
-
-        })
-
-        this.anims.create({
-            key: 'man-sit1-left',
-            frames: this.anims.generateFrameNames('man-sit1', {
-                start: 0,
-                end: 5,
-                prefix: 'sit-left-',
-                suffix: '.png'
-            }),
-            frameRate: 10,
-            repeat: -1
-        })
-
-        this.anims.create({
-            key: 'man-sit1-right',
-            frames: this.anims.generateFrameNames('man-sit1', {
-                start: 6,
-                end: 11,
-                prefix: 'sit-right-',
-                suffix: '.png'
-            }),
-            frameRate: 10,
-            repeat: -1
-        })
+        this.man = this.physics.add.sprite(120, 120, 'idle', 'idle-up-8.png')
+        this.man.body?.setSize(16, 16)
+        this.man.body?.setOffset(0, 16);
+        this.man.setDepth(this.man.y)
+        this.man.anims.play('idle-down')
 
         //@ts-ignore
-        this.wallLayer = map.createLayer('walls', tileset)
+        this.wallLayer = map.createLayer('walls', [tileset, tileset2])
         this.wallLayer?.setCollisionByProperty({ collider: true })
 
         this.camera.startFollow(this.man, true)
@@ -152,13 +73,19 @@ export class Game extends Phaser.Scene {
             this.man.anims.play('run-down', true)
             this.man.setVelocity(0, speed)
         } else if (this.cursors.space.isDown) {
-            // this.man.anims.play('man-sit1-left')
             this.man.anims.play('man-sit1-right')
         } else if (Phaser.Input.Keyboard.JustDown(this.phoneKey)) {
             this.man.anims.play('man-phone')
-        } else if (Phaser.Input.Keyboard.JustDown(this.cutPhone)) {
-            this.man.anims.stop()
         } else {
+            const currentAnim = this.man.anims.currentAnim;
+            if (currentAnim) {
+                const direction = currentAnim.key.split('-')[1];
+                const idleKey = `idle-${direction}`;
+
+                if (this.man.anims.currentAnim?.key !== idleKey) {
+                    this.man.anims.play(idleKey, true);
+                }
+            }
             this.man.setVelocity(0, 0)
         }
 
