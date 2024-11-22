@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 import { createCharacterAnims } from "../anims/CharacterAnims";
+import { debugDraw } from "../../utils/Debug";
 
 
 export class Game extends Phaser.Scene {
@@ -25,34 +26,81 @@ export class Game extends Phaser.Scene {
 
         this.phoneKey = this.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.A)
 
-        const map = this.make.tilemap({
-            key: 'room'
+        // Create the map
+        const map = this.make.tilemap({ key: 'map' });
+
+        // Add tilesets
+
+        // const beachTile = map.addTilesetImage('ground', 'beach_tile', 16, 16);
+        const cliffTile = map.addTilesetImage('cliff', 'cliff_tile', 16, 16);
+        const fences = map.addTilesetImage('walls', 'fences', 16, 16);
+        const tree = map.addTilesetImage('tree', 'tree', 16, 16);
+        const smallTree = map.addTilesetImage('trees-small', 'tree_small', 16, 16)
+        const waterTile = map.addTilesetImage('river', 'water_tile', 16, 16);
+        const interiorTile2 = map.addTilesetImage('interior2', 'interior2', 16, 16)
+        const interior = map.addTilesetImage('interior', 'interior', 16, 16, 1, 2)
+        const indoor = map.addTilesetImage('indoor', 'indoor', 16, 16, 1, 2)
+        const walls = map.addTilesetImage('indoor', 'indoor', 16, 16)
+        const bridge = map.addTilesetImage('bridge', 'bridge', 16, 16)
+
+        // Add layers
+        // @ts-ignore
+        const groundLayer = map.createLayer('ground', [
+            // beachTile,
+            cliffTile, waterTile, interiorTile2, indoor]);
+        // @ts-ignore
+        const wallLayer = map.createLayer('walls', [indoor, waterTile, interiorTile2, fences, walls]);
+        // @ts-ignore
+        const bridgeLayer = map.createLayer('bridge', bridge)
+
+        // @ts-ignore
+        const treesLayer = map.createLayer('trees', [tree, smallTree])
+        treesLayer?.setDepth(10)
+        console.log('st', smallTree)
+
+        map.createLayer('furniture', [interiorTile2, interior])
+        map.createLayer('furniture2', interiorTile2)
+        map.createLayer('fur3', interiorTile2)
+
+
+        wallLayer?.setCollisionByProperty({ collider: true })
+        bridgeLayer?.setCollisionByProperty({ collider: true })
+        // wallLayer?.setCollision([12, 17], false)
+        console.log(wallLayer?.getTileAt(12, 17).setCollision(false))
+        const positions = [
+            { x: 12, y: 19 },
+            { x: 13, y: 17 },
+            { x: 13, y: 19 },
+            { x: 13, y: 21 },
+            { x: 12, y: 22 },
+            { x: 13, y: 25 },
+            { x: 10, y: 21 },
+            { x: 3, y: 21 },
+            { x: 3, y: 20 },
+            { x: 12, y: 21 },
+            { x: 12, y: 25 }
+        ];
+
+        // Loop through and disable collision for these positions
+        positions.forEach(pos => {
+            const tile = wallLayer?.getTileAt(pos.x, pos.y);
+            if (tile) {
+                tile.setCollision(false);
+            }
         })
 
-        const tileset = map.addTilesetImage('virtualOffice', 'tiles', 16, 16, 1, 2)
-        const tileset2 = map.addTilesetImage('outside', 'outside', 16, 16, 1, 2)
-        //@ts-ignore
-        map.createLayer('ground', [tileset, tileset2])
-        // map.createLayer('walls2', tileset)
-
+        // debugDraw(wallLayer, this)
+        // debugDraw(bridgeLayer, this)
 
         this.man = this.physics.add.sprite(120, 120, 'idle', 'idle-up-8.png')
-        this.man.body?.setSize(16, 16)
-        this.man.body?.setOffset(0, 16);
+        this.man.body?.setSize(10, 10)
+        this.man.body?.setOffset(4, 20);
         this.man.setDepth(this.man.y)
         this.man.anims.play('idle-down')
 
-        //@ts-ignore
-        this.wallLayer = map.createLayer('walls', [tileset, tileset2])
-        this.wallLayer?.setCollisionByProperty({ collider: true })
 
         this.camera.startFollow(this.man, true)
-        this.physics.add.collider(this.man, this.wallLayer)
-
-        // man.anims.play('run-right')
-        // man.anims.play('run-left')
-        // this.man.anims.play('run-up')
-        // man.anims.play('run-down')
+        this.physics.add.collider(this.man, wallLayer)
 
     }
 
