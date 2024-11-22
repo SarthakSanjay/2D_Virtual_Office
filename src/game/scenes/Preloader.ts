@@ -9,10 +9,20 @@ export class Preloader extends Scene {
     }
 
     preload() {
-        this.load.image('tiles', 'interior/room_extruded.png')
-        this.load.image('outside', 'interior/outside_extruded.png')
-        this.load.tilemapTiledJSON('room', 'interior/room.json')
 
+        this.load.image('beach_tile', 'outdoor/Beach_Tile.png')
+        this.load.image('bridge', 'outdoor/Bridge_Wood.png')
+        this.load.image('cliff_tile', 'outdoor/Cliff_Tile.png')
+        this.load.image('fences', 'outdoor/Fences.png')
+        this.load.image('tree', 'outdoor/Oak_Tree.png')
+        this.load.image('tree_small', 'outdoor/Oak_Tree_Small.png')
+        this.load.image('outdoor_decor', 'outdoor/Outdoor_Decor_Free.png')
+        this.load.image('water_tile', 'outdoor/Water_Tile.png')
+        this.load.image('interior2', 'interior/interior2.png')
+        this.load.image('indoor', 'interior/room_extruded.png')
+        this.load.image('interior', 'interior/interior_extruded.png')
+
+        this.load.tilemapTiledJSON('map', 'map/map.json')
 
         //man character
         this.load.atlas('idle', 'character/idle.png', 'character/idle.json')
