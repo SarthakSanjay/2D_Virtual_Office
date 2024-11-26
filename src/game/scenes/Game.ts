@@ -4,6 +4,7 @@ import { createMapLayers, setupColliders } from "../layer/Layers";
 import { sofaTiles } from "../character/positions";
 import Man from "../character/Man";
 import '../character/Man'
+import { debugDraw } from "../../utils/Debug";
 
 export class Game extends Phaser.Scene {
     camera: Phaser.Cameras.Scene2D.Camera;
@@ -33,14 +34,21 @@ export class Game extends Phaser.Scene {
         // Use helper function to create map layers
         const layers = createMapLayers(this, this.map);
 
+
         // Use helper function to setup colliders
         const { wallLayer, bridgeLayer } = setupColliders(this, layers);
 
         this.man = this.add.man(120, 120, 'man');
+        this.man.body?.setSize(10, 10)
+        this.man.body?.setOffset(4, 20);
+
 
         this.camera.startFollow(this.man, true);
-        this.physics.add.collider(this.man, wallLayer);
-        this.physics.add.collider(this.man, bridgeLayer);
+        this.physics.add.collider(this.man, layers.wallLayer);
+        this.physics.add.collider(this.man, layers.bridgeLayer);
+
+        debugDraw(wallLayer, this)
+        debugDraw(bridgeLayer, this)
     }
 
     update(time: number, delta: number): void {
