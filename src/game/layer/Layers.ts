@@ -18,7 +18,7 @@ export function createMapLayers(scene: Phaser.Scene, map: Phaser.Tilemaps.Tilema
     const groundLayer = map.createLayer('ground', [cliffTile, waterTile, interiorTile2, indoor, pathTile]);
     const wallLayer = map.createLayer('walls', [indoor, waterTile, interiorTile2, fences, walls, pathTile]);
     const bridgeLayer = map.createLayer('bridge', bridge);
-    const treesLayer = map.createLayer('trees', [tree, smallTree, outdoorDecor]);
+    const treesLayer = map.createLayer('trees', [tree, smallTree, outdoorDecor, interiorTile2]);
     const furnitureLayer = map.createLayer('furniture', [interiorTile2, interior]);
     map.createLayer('furniture2', interiorTile2)
     map.createLayer('fur3', interiorTile2)
@@ -51,7 +51,8 @@ export function setupColliders(scene: Phaser.Scene, layers: { wallLayer?: Phaser
         { x: 3, y: 21 },
         { x: 3, y: 20 },
         { x: 12, y: 21 },
-        { x: 12, y: 25 }
+        { x: 12, y: 25 },
+        { x: 12, y: 17 }
     ];
 
     // Loop through and disable collision for these positions
