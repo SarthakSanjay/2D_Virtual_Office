@@ -27,11 +27,6 @@ export default class Man extends Phaser.Physics.Arcade.Sprite {
     ) {
         super(scene, x, y, texture, frame)
 
-        // this.anims.play('idle-down')
-        // this.anims.play('faune-idle-down')
-        // this.man = this.physics.add.sprite(120, 120, 'idle', 'idle-up-8.png')
-        this.body?.setSize(10, 10)
-        this.body?.setOffset(4, 20);
         this.setDepth(this.y)
         this.anims.play('idle-down')
 
