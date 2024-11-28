@@ -43,15 +43,18 @@ export class Game extends Phaser.Scene {
         this.treesLayer = this.layers.treesLayer
 
         // Use helper function to setup colliders
-        const { wallLayer, bridgeLayer } = setupColliders(this, this.layers)
+        const { wallLayer, bridgeLayer, furnitureLayer, furnitureLayer2, furnitureLayer3 } = setupColliders(this, this.layers)
 
         this.man = this.add.man(120, 120, 'man')
         this.man.body?.setSize(10, 10)
         this.man.body?.setOffset(4, 20)
 
         this.camera.startFollow(this.man, true)
-        this.physics.add.collider(this.man, wallLayer)
-        this.physics.add.collider(this.man, bridgeLayer)
+        wallLayer && this.physics.add.collider(this.man, wallLayer)
+        bridgeLayer && this.physics.add.collider(this.man, bridgeLayer)
+        furnitureLayer && this.physics.add.collider(this.man, furnitureLayer)
+        furnitureLayer2 && this.physics.add.collider(this.man, furnitureLayer2)
+        furnitureLayer3 && this.physics.add.collider(this.man, furnitureLayer3)
 
         this.backdrop = this.add.graphics()
         this.backdrop.fillStyle(0x000000, 0)
@@ -63,6 +66,9 @@ export class Game extends Phaser.Scene {
         this.selected.setDepth(15)
         // debugDraw(wallLayer, this)
         // debugDraw(bridgeLayer, this)
+        debugDraw(furnitureLayer2, this)
+        // console.log('debug', furnitureLayer2)
+        // debugDraw(furnitureLayer2, this)
     }
     getAdjacentPositions(center: any) {
         const { x, y } = center
@@ -98,14 +104,21 @@ export class Game extends Phaser.Scene {
                     this.backdrop.fillStyle(0x000000, 0.5) // Brown tint with 50% opacity
                     this.backdrop.fillRect(0, 0, 1024, 720)
 
-                    this.selected.clear()
-                    this.selected.fillStyle(0x00ff00, 0.2)
-                    this.selected.fillRect(tileX, tileY, 48, 48)
                     this.man.anims.play('sit3-left')
                 } else if (tile.side === 'right') {
                     this.man.anims.play('sit3-right')
                 }
+                let center = { x: tile.x, y: tile.y }
+                let excluded = this.getAdjacentPositions(center)
+                excluded.forEach(() => {
+                    // // this.selected.clear()
+                    // this.selected.fillStyle(0x00ff00, 1)
+                    // this.selected.fillRect(tile.x, tile.y, 16, 16)
+
+                    console.log('xy',)
+                })
             }
+
         })
 
         // Revert the tint and background color if the character is not on a sofa tile
