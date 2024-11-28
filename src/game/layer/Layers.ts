@@ -20,8 +20,8 @@ export function createMapLayers(scene: Phaser.Scene, map: Phaser.Tilemaps.Tilema
     const bridgeLayer = map.createLayer('bridge', bridge);
     const treesLayer = map.createLayer('trees', [tree, smallTree, outdoorDecor, interiorTile2]);
     const furnitureLayer = map.createLayer('furniture', [interiorTile2, interior]);
-    map.createLayer('furniture2', interiorTile2)
-    map.createLayer('fur3', interiorTile2)
+    const furnitureLayer2 = map.createLayer('furniture2', interiorTile2)
+    const furnitureLayer3 = map.createLayer('fur3', interiorTile2)
 
     treesLayer?.setDepth(10);
 
@@ -30,16 +30,28 @@ export function createMapLayers(scene: Phaser.Scene, map: Phaser.Tilemaps.Tilema
         wallLayer,
         bridgeLayer,
         treesLayer,
-        furnitureLayer
+        furnitureLayer,
+        furnitureLayer2,
+        furnitureLayer3
     };
 }
 
-export function setupColliders(scene: Phaser.Scene, layers: { wallLayer?: Phaser.Tilemaps.TilemapLayer; bridgeLayer?: Phaser.Tilemaps.TilemapLayer }) {
-    const { wallLayer, bridgeLayer } = layers;
+export function setupColliders(scene: Phaser.Scene, layers: {
+    wallLayer?: Phaser.Tilemaps.TilemapLayer
+    bridgeLayer?: Phaser.Tilemaps.TilemapLayer
+    furnitureLayer?: Phaser.Tilemaps.TilemapLayer
+    furnitureLayer2?: Phaser.Tilemaps.TilemapLayer
+    furnitureLayer3?: Phaser.Tilemaps.TilemapLayer
+}) {
+    const { wallLayer, bridgeLayer, furnitureLayer, furnitureLayer2, furnitureLayer3 } = layers;
 
     wallLayer?.setCollisionByProperty({ collider: true });
     bridgeLayer?.setCollisionByProperty({ collider: true });
+    furnitureLayer?.setCollisionByProperty({ collider: true })
+    furnitureLayer2?.setCollisionByProperty({ collider: true })
+    furnitureLayer3?.setCollisionByProperty({ collider: true })
 
+    furnitureLayer2?.getTileAt(20, 10).setCollision(false)
     const positions = [
         { x: 12, y: 19 },
         { x: 13, y: 17 },
@@ -63,5 +75,5 @@ export function setupColliders(scene: Phaser.Scene, layers: { wallLayer?: Phaser
         }
     });
 
-    return { wallLayer, bridgeLayer };
+    return { wallLayer, bridgeLayer, furnitureLayer, furnitureLayer2, furnitureLayer3 };
 }
