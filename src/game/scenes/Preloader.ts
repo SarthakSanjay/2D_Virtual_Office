@@ -21,6 +21,7 @@ export class Preloader extends Scene {
         this.load.image('interior2', 'interior/interior2.png')
         this.load.image('indoor', 'interior/room_extruded.png')
         this.load.image('interior', 'interior/interior_extruded.png')
+        this.load.image('path', 'outdoor/Path_Tile.png')
 
         this.load.tilemapTiledJSON('map', 'map/map.json')
 
