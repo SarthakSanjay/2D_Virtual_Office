@@ -21,29 +21,31 @@ export default class Man extends Phaser.Physics.Arcade.Sprite {
     private map: Phaser.Tilemaps.Tilemap
     private phoneKey!: Phaser.Input.Keyboard.Key
 
+
     constructor(
         scene: Phaser.Scene,
         x: number,
         y: number,
         texture: string,
         map: Phaser.Tilemaps.Tilemap,
-        frame?: string | number,
+        frame?: string | number
     ) {
-        super(scene, x, y, texture, frame)
-        this.map = map
+        super(scene, x, y, texture, frame);
 
-        this.phoneKey = scene.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.A)
+        if (!map) {
+            throw new Error("Tilemap is undefined in Man class.");
+        }
 
-        this.setDepth(this.y)
-        this.anims.play('idle-down')
-
-
+        this.map = map;
+        this.phoneKey = scene.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.A);
+        this.setDepth(this.y);
+        this.anims.play('idle-down');
     }
 
     update(cursors: Phaser.Types.Input.Keyboard.CursorKeys) {
         if (!cursors) return
 
-        const speed = 100
+        const speed = 150
         if (cursors.right.isDown) {
             this.anims.play('run-right', true)
             this.setVelocity(speed, 0)
@@ -60,8 +62,13 @@ export default class Man extends Phaser.Physics.Arcade.Sprite {
             this.anims.play('sit3-right')
         }
         else if (Phaser.Input.Keyboard.JustDown(this.phoneKey)) {
-            // this.man.anims.play('man-phone')
-            this.setPosition(this.map?.worldToTileX(20), this.map?.worldToTileY(10))
+            if (this.map) {
+                const worldX = this.map.tileToWorldX(21);
+                const worldY = this.map.tileToWorldY(10);
+                this.setPosition(worldX, worldY);
+            } else {
+                console.error("Tilemap is not defined for Man.");
+            }
         }
         else {
             const currentAnim = this.anims.currentAnim;
@@ -80,15 +87,29 @@ export default class Man extends Phaser.Physics.Arcade.Sprite {
 }
 
 
-Phaser.GameObjects.GameObjectFactory.register('man', function (this: Phaser.GameObjects.GameObjectFactory, x: number, y: number, texture: string, map: Phaser.Tilemaps.Tilemap, frame?: string | number) {
-    let sprite = new Man(this.scene, x, y, texture, map, frame)
 
-    this.displayList.add(sprite)
-    this.updateList.add(sprite)
+Phaser.GameObjects.GameObjectFactory.register(
+    'man',
+    function (
+        this: Phaser.GameObjects.GameObjectFactory,
+        x: number,
+        y: number,
+        texture: string,
+        map: Phaser.Tilemaps.Tilemap,
+        frame?: string | number
+    ) {
+        if (!map) {
+            throw new Error("Tilemap is required to create a Man object.");
+        }
 
-    this.scene.physics.world.enableBody(sprite, Phaser.Physics.Arcade.DYNAMIC_BODY)
-    sprite.body?.setSize(sprite.width * 0.5, sprite.height * 0.8)
+        const sprite = new Man(this.scene, x, y, texture, map, frame);
 
+        this.displayList.add(sprite);
+        this.updateList.add(sprite);
 
-    return sprite
-})
+        this.scene.physics.world.enableBody(sprite, Phaser.Physics.Arcade.DYNAMIC_BODY);
+        sprite.body?.setSize(sprite.width * 0.5, sprite.height * 0.8);
+
+        return sprite;
+    }
+);
