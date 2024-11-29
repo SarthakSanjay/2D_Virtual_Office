@@ -31,7 +31,6 @@ export class Game extends Phaser.Scene {
         this.camera = this.cameras.main
         createCharacterAnims(this.anims)
 
-        this.phoneKey = this.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.A)
 
         // Create the map
         this.map = this.make.tilemap({ key: 'map' })
@@ -45,7 +44,7 @@ export class Game extends Phaser.Scene {
         // Use helper function to setup colliders
         const { wallLayer, bridgeLayer, furnitureLayer, furnitureLayer2, furnitureLayer3 } = setupColliders(this, this.layers)
 
-        this.man = this.add.man(120, 120, 'man')
+        this.man = this.add.man(120, 120, 'man', undefined, this.map)
         this.man.body?.setSize(10, 10)
         this.man.body?.setOffset(4, 20)
 

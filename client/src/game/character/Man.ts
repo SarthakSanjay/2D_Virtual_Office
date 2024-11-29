@@ -8,6 +8,7 @@ declare global {
                 x: number,
                 y: number,
                 texture: string,
+                map: Phaser.Tilemaps.Tilemap,
                 frame?: string | number
             ): Man
         }
@@ -17,15 +18,21 @@ declare global {
 
 export default class Man extends Phaser.Physics.Arcade.Sprite {
 
+    private map: Phaser.Tilemaps.Tilemap
+    private phoneKey!: Phaser.Input.Keyboard.Key
 
     constructor(
         scene: Phaser.Scene,
         x: number,
         y: number,
         texture: string,
-        frame?: string | number
+        map: Phaser.Tilemaps.Tilemap,
+        frame?: string | number,
     ) {
         super(scene, x, y, texture, frame)
+        this.map = map
+
+        this.phoneKey = scene.input.keyboard?.addKey(Phaser.Input.Keyboard.KeyCodes.A)
 
         this.setDepth(this.y)
         this.anims.play('idle-down')
@@ -52,10 +59,10 @@ export default class Man extends Phaser.Physics.Arcade.Sprite {
         } else if (cursors.space.isDown) {
             this.anims.play('sit3-right')
         }
-        // else if (Phaser.Input.Keyboard.JustDown(this.phoneKey)) {
-        //     // this.man.anims.play('man-phone')
-        //     this.setPosition(this.map.tileToWorldX(27), this.map.tileToWorldY(10))
-        // }
+        else if (Phaser.Input.Keyboard.JustDown(this.phoneKey)) {
+            // this.man.anims.play('man-phone')
+            this.setPosition(this.map?.worldToTileX(20), this.map?.worldToTileY(10))
+        }
         else {
             const currentAnim = this.anims.currentAnim;
             if (currentAnim) {
@@ -73,8 +80,8 @@ export default class Man extends Phaser.Physics.Arcade.Sprite {
 }
 
 
-Phaser.GameObjects.GameObjectFactory.register('man', function (this: Phaser.GameObjects.GameObjectFactory, x: number, y: number, texture: string, frame?: string | number) {
-    let sprite = new Man(this.scene, x, y, texture, frame)
+Phaser.GameObjects.GameObjectFactory.register('man', function (this: Phaser.GameObjects.GameObjectFactory, x: number, y: number, texture: string, map: Phaser.Tilemaps.Tilemap, frame?: string | number) {
+    let sprite = new Man(this.scene, x, y, texture, map, frame)
 
     this.displayList.add(sprite)
     this.updateList.add(sprite)

@@ -19,15 +19,13 @@ const config: Phaser.Types.Core.GameConfig = {
         default: 'arcade',
         arcade: {
             gravity: { y: 0 },
-            debug: false
+            debug: true
         }
     }
 };
 
 const StartGame = (parent: string) => {
-
     return new Game({ ...config, parent });
-
 }
 
 export default StartGame;
