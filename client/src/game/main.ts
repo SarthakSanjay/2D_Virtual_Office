@@ -1,16 +1,18 @@
 import { Game as MainGame } from './scenes/Game';
 import { AUTO, Game } from 'phaser';
 import { Preloader } from './scenes/Preloader';
+import { Test } from './scenes/Test';
 
 const config: Phaser.Types.Core.GameConfig = {
     type: AUTO,
-    width: 512,
+    width: 503,
     height: 384,
     parent: 'game-container',
-    backgroundColor: '#a0233b',
+    backgroundColor: '#0c103d',
     scene: [
         Preloader,
         MainGame,
+        Test
     ],
     scale: {
         zoom: 2
@@ -19,7 +21,7 @@ const config: Phaser.Types.Core.GameConfig = {
         default: 'arcade',
         arcade: {
             gravity: { y: 0 },
-            debug: true
+            debug: false
         }
     }
 };
