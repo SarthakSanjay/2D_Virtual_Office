@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Backdrop from '../components/Backdrop'
-import Explore from './Explore'
+import Explore from '../components/Explore'
 
 const GetStarted = () => {
     const [toggle, setToggle] = useState(false)
