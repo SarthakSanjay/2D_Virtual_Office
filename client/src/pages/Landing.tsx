@@ -1,3 +1,5 @@
+import { NavLink } from "react-router";
+
 const LandingPage = () => {
     return (
         <div className="h-screen w-full bg-gradient-to-b from-gray-100 to-gray-200">
@@ -23,9 +25,10 @@ const LandingPage = () => {
                         <h1 className="text-4xl font-bold text-white mb-4">
                             Make your virtual office instantly
                         </h1>
-                        <button className="px-6 py-3 bg-black/40 text-white rounded-lg hover:bg-blue-600">
-                            Get Started
-                        </button>
+                        <NavLink to="/get-started">
+                            <button className="px-6 py-3 bg-black/40 text-white rounded-lg hover:bg-blue-600">Get Started</button>
+                        </NavLink>
+
                     </div>
 
                     {/* 2nd Div: Video Section */}
