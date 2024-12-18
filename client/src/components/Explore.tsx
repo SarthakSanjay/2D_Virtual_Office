@@ -1,30 +1,25 @@
 import React, { useEffect, useState } from 'react'
-
+import { slides } from '../utils/data'
+import { useAuth0 } from '@auth0/auth0-react'
+import { useNavigate } from 'react-router'
 const Explore = () => {
-
-    const slides = [
-        {
-            id: 1,
-            image: 'https://cdn.gather.town/v0/b/gather-town.appspot.com/o/manually-uploaded%2Fvalueprop%2Fvalueprop1.png?alt=media'
-            ,
-            text: "Let's create you a office environment"
-        }, {
-            id: 2,
-            image: 'https://cdn.gather.town/v0/b/gather-town.appspot.com/o/manually-uploaded%2Fvalueprop%2Fvalueprop2.png?alt=media',
-            text: 'Talk naturally throughout the day'
-        }, {
-            id: 3,
-            image: 'https://cdn.gather.town/v0/b/gather-town.appspot.com/o/manually-uploaded%2Fvalueprop%2Fvalueprop3.png?alt=media',
-            text: 'See what your teammates are up to'
-        }, {
-            id: 4,
-            image: 'https://cdn.gather.town/v0/b/gather-town.appspot.com/o/manually-uploaded%2Fvalueprop%2Fvalueprop5.png?alt=media',
-            text: 'Your turn! Let’s create your virtual HQ'
-        },
-    ]
-
     const [id, setId] = useState(1)
     const [space, setSpace] = useState('')
+    const { user, isAuthenticated, loginWithPopup } = useAuth0()
+    const navigate = useNavigate()
+
+    const handleCreateSpace = () => {
+        if (!isAuthenticated) {
+            loginWithPopup()
+        } else {
+            console.log('create space')
+            // navigate('/app')
+        }
+    }
+
+    if (isAuthenticated) {
+        navigate('/app')
+    }
 
     if (id === 4) {
         return <div className='h-screen w-screen flex justify-center items-center flex-col'>
@@ -45,6 +40,7 @@ const Explore = () => {
                 <button
                     className='h-10 w-max px-5 rounded-lg bg-green-600 text-black disabled:bg-green-600/60'
                     disabled={!space}
+                    onClick={handleCreateSpace}
                 >Create space</button>
 
             </div>
@@ -63,13 +59,13 @@ const Explore = () => {
                         onClick={() => setId(p => p + 1)}
                     >Explore</button>
                     :
-                    <div>
+                    <div className='space-x-4'>
                         <button
                             className='h-10 w-max px-5 rounded-lg bg-white text-black'
                             onClick={() => setId(p => p - 1)}
-                        >Prev {id - 1}</button>
+                        >Prev</button>
                         <button
-                            className='h-10 w-max px-5 rounded-lg bg-white text-black'
+                            className='h-10 w-max px-5 rounded-lg bg-[#6441a5] text-white'
                             onClick={() => {
                                 setId(p => p + 1)
                             }
