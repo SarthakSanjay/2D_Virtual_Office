@@ -2,18 +2,27 @@ import React, { useEffect, useState } from 'react'
 import { slides } from '../utils/data'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useNavigate } from 'react-router'
+import axios from 'axios'
+
 const Explore = () => {
     const [id, setId] = useState(1)
     const [space, setSpace] = useState('')
     const { user, isAuthenticated, loginWithPopup } = useAuth0()
     const navigate = useNavigate()
 
-    const handleCreateSpace = () => {
+    const handleCreateSpace = async () => {
         if (!isAuthenticated) {
             loginWithPopup()
         } else {
             console.log('create space')
             // navigate('/app')
+            await axios.post('http://localhost:3000/create_space', {
+                name: space
+            }).then(() => {
+                alert('space created')
+            }).catch((e) => {
+                console.log(e.message)
+            })
         }
     }
 
