@@ -1,14 +1,18 @@
 import { useState } from 'react';
+import { useAuth0 } from '@auth0/auth0-react';
 
-const Navbar = () => {
+const Navbar = ({ setClickedCreateSpaceBtn }: {
+    setClickedCreateSpaceBtn: (value: boolean) => void
+}) => {
+
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+    const { logout } = useAuth0()
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
     };
 
     return (
-        <div className="h-[80px] w-full bg-gradient-to-r from-blue-900 via-blue-500 to-blue-800 flex justify-center items-center px-4">
+        <div className="h-[80px] w-full bg-gradient-to-r from-blue-900 via-blue-700 to-blue-800 flex justify-center items-center px-4">
             <div className="flex justify-between w-full px-4">
                 <div className="flex space-x-2">
                     <button className="text-white">Logo</button>
@@ -16,7 +20,14 @@ const Navbar = () => {
                     <button className="text-white h-10 w-max px-4 hover:bg-black/40 rounded-lg">My Space</button>
                 </div>
                 <div className="flex space-x-1">
-                    <button className="text-white h-10 w-max px-4 hover:bg-black/40 rounded-lg">Profile</button>
+                    <button className="text-white h-10 w-max px-4 hover:bg-black/40 rounded-lg"
+
+                        onClick={() => logout({
+                            logoutParams: {
+                                returnTo: window.location.origin
+                            }
+                        })}
+                    >logout</button>
                     {/* <button className="text-white">Resources</button> */}
                     <button
                         onClick={toggleDropdown} // Toggle the dropdown on click
@@ -35,7 +46,10 @@ const Navbar = () => {
                         </div>
                     )}
 
-                    <button className="text-black bg-emerald-500 h-10 w-max px-4 hover:bg-black/40 rounded-lg">Create Space</button>
+                    <button className="text-black bg-emerald-500 h-10 w-max px-4 hover:bg-black/40 rounded-lg"
+                        onClick={() => {
+                            setClickedCreateSpaceBtn(true)
+                        }}>Create Space</button>
                 </div>
             </div>
         </div>
@@ -43,4 +57,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
