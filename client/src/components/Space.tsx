@@ -1,8 +1,20 @@
 import { BsThreeDotsVertical } from "react-icons/bs";
+import Explore from "./Explore";
+import Backdrop from "./Backdrop";
 
-const Space = () => {
+const Space = ({ clickedCreateSpaceBtn, setClickedCreateSpaceBtn }: {
+    clickedCreateSpaceBtn: boolean,
+    setClickedCreateSpaceBtn: (value: boolean) => void
+}) => {
+
+    if (clickedCreateSpaceBtn) {
+        return <Backdrop>
+            <Explore setClickedCreateSpaceBtn={setClickedCreateSpaceBtn} />
+        </Backdrop>
+    }
+
     return (
-        <div className="h-full w-full bg-blue-900">
+        <div className="h-full w-full bg-blue-900 ">
             <div className="w-full h-16 flex justify-end items-center space-x-4 px-8">
                 <button className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700">
                     Last Visited
