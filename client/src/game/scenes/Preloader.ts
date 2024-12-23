@@ -9,7 +9,8 @@ export class Preloader extends Scene {
     }
 
     preload() {
-
+        const baseUrl = window.location.origin;
+        this.load.setBaseURL(baseUrl);
         this.load.image('beach_tile', 'outdoor/Beach_Tile.png')
         this.load.image('bridge', 'outdoor/Bridge_Wood.png')
         this.load.image('cliff_tile', 'outdoor/Cliff_Tile.png')
