@@ -12,8 +12,8 @@ import ProtectedRoute from './auth/ProtectedRoute.tsx';
 ReactDOM.createRoot(document.getElementById('root')!).render(
     <React.StrictMode>
         <Auth0Provider
-            domain="dev-ij8ftmqhf6w5wi3p.us.auth0.com"
-            clientId="MCKPDX5YUVyu7Mp3G6WD2b3z5EInvidS"
+            domain={import.meta.env.VITE_AUTH0_DOMAIN}
+            clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
             authorizationParams={{
                 redirect_uri: window.location.origin
             }}
