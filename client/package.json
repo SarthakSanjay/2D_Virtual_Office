@@ -28,6 +28,8 @@
         "build-nolog": "vite build --config vite/config.prod.mjs"
     },
     "dependencies": {
+        "@auth0/auth0-react": "^2.2.4",
+        "axios": "^1.7.9",
         "phaser": "^3.87.0",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
@@ -35,6 +37,7 @@
         "react-router": "^7.0.1"
     },
     "devDependencies": {
+        "@types/axios": "^0.9.36",
         "@types/react": "^18.3.3",
         "@types/react-dom": "^18.3.0",
         "@typescript-eslint/eslint-plugin": "^7.13.1",
